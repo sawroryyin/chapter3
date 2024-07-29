@@ -1,21 +1,16 @@
 package se233.chapter3.controller;
-
 import org.apache.pdfbox.text.PDFTextStripper;
 import se233.chapter3.model.FileFreq;
 import se233.chapter3.model.PdfDocument;
-
 import java.io.IOException;
 import java.util.AbstractMap;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
-
 import static java.util.stream.Collectors.toMap;
 
 public class WordCountMapTask implements Callable<Map<String, FileFreq>> {
-
 
     private PdfDocument doc;
     public WordCountMapTask(PdfDocument doc) throws IOException {
@@ -38,6 +33,4 @@ public class WordCountMapTask implements Callable<Map<String, FileFreq>> {
                 .collect(Collectors.toMap(e -> e.getKey(), e -> new FileFreq(doc.getName(), doc.getFilePath(), e.getValue())));
         return wordCount;
     }
-
-
 }

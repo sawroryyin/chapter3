@@ -1,22 +1,18 @@
 package se233.chapter3.controller;
-
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import se233.chapter3.Launcher;
 import se233.chapter3.model.FileFreq;
 import se233.chapter3.model.PdfDocument;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedHashMap;
@@ -117,7 +113,6 @@ public class MainViewController {
     thread.setDaemon(true);
     thread.start();
 });
-
         listView.setOnMouseClicked(event -> {
             List<FileFreq> listOfLinks = uniqueSets.get(listView.getSelectionModel().getSelectedItem());
             ListView<FileFreq> popupListView = new ListView<>();

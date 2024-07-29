@@ -1,12 +1,9 @@
 package se233.chapter3;
-
 import javafx.application.Application;
 import javafx.application.HostServices;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import static javafx.application.Application.launch;
 
 public class Launcher extends Application {
 

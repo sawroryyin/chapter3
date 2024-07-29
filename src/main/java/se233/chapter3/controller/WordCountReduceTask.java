@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 
 public class WordCountReduceTask implements Callable<LinkedHashMap<String, List<FileFreq>>> {
 
-
     private Map<String, FileFreq> [] wordMap;
     public WordCountReduceTask(Map<String, FileFreq>[] wordMap) {
         this.wordMap = wordMap;
@@ -36,6 +35,4 @@ public class WordCountReduceTask implements Callable<LinkedHashMap<String, List<
                         (v1, v2) -> v1, () -> new LinkedHashMap<>()));
                 return uniqueSets;
     }
-
-
 }

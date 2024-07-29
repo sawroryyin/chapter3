@@ -2,9 +2,6 @@ package se233.chapter3.model;
 
 public class FileFreq {
     private String name;
-
-
-
     private String path;
     private Integer freq;
     public FileFreq(String name, String path, Integer freq) {
