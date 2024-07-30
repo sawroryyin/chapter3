@@ -26,11 +26,19 @@ public class WordCountReduceTask implements Callable<LinkedHashMap<String, List<
                                 (list, item) -> list.add(item.getValue()),
                                 (current_list, new_items) -> {
                                     current_list.addAll(new_items);
-                                    return current_list; })
+                                    return current_list; },
+                                lst -> {    //Ex3
+                                    Collections.sort(lst, (s1, s2) -> Integer.compare(s2.getFreq(), s1.getFreq()));
+                                    return lst;
+                                })
                 ))
                 .entrySet()
                 .stream()
-                .sorted(Map.Entry.comparingByKey())
+                .sorted((a,b)->{    // Ex.1 change this to sort
+                    int num1 = a.getValue().stream().mapToInt(num->num.getFreq()).sum();
+                    int num2 = b.getValue().stream().mapToInt(num->num.getFreq()).sum();
+                    return Integer.compare(num2, num1);
+                }) //sorting with alphabet
                 .collect(Collectors.toMap(e -> e.getKey(), e -> e.getValue(),
                         (v1, v2) -> v1, () -> new LinkedHashMap<>()));
                 return uniqueSets;

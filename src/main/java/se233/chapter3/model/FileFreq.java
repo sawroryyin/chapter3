@@ -17,4 +17,8 @@ public class FileFreq {
     public String getPath() {
         return path;
     }
+
+    public Integer getFreq() {
+        return freq;
+    }
 }
